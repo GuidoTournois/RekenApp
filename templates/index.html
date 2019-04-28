@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% block head %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Xomnia Feedback System</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow" />
+
+	<!-- Bootstrap Core CSS file -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+	<!-- Override CSS file - add your own CSS rules -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/component-chosen.min.css')}}">
+	<!--  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.9.0/css/bootstrap-slider.css"> -->
+	<link rel="stylesheet" href="{{url_for('static',filename='css/nps.css')}}">
+
+	<!-- JQuery scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/chosen.proto.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/chosen.jquery.js') }}"></script>
+
+	<!-- Conditional comment containing JS files for IE6 - 8 -->
+	<!--[if lt IE 9]>
+	<script src="js/html5.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	{% endblock %}
+</head>
+<body>
+
+
+<!-- Page Content -->
+<main class="container-fluid" role="main">
+	<div class="container jumbotron">
+		<h2 class="title-display">{% block title %} {% endblock %}</h2>
+
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			<!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+			{% if messages %}
+				{% for category, message in messages %}
+				<div class="alert alert-{{ category }} alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<!-- <strong>Title</strong> --> {{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+<br/>
+		{% block summary %} {% endblock %}
+<br/>
+		{% block content %}{% endblock %}
+	</div>
+</main>
+<!-- /.container-fluid -->
+
+<!-- Bootstrap Core scripts -->
+{% block script %}
+{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+{% block title %} Reken App {% endblock %}
+
+{% block content %}
+<center>
+
+
+<h1>{{a}} {{c}} {{b}}</h1>
+
+<h2>
+<div class="btn-group" role="group" aria-label="Basic example">
+{% for item in answers %}
+  <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{{item}}</button>
+{% endfor %}
+</div>
+</h2>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+      <h1>Het juiste antwoord is: {{juist}}</h1>
+  </div>
+</div>
+
+
+<!--<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="false">{{item}}</a>-->
+        <!--<button>{{item}}</button>-->
+
+</center>
+{% endblock %}
+
+
+{% block script %}
+<script>
+console.log('go')
+$(document).ready(function(){
+
+    $(".btn").click(function(){
+        console.log("hoi")
+        setTimeout(
+          function()
+          {
+                location.reload(true);
+          }, 1000);
+
+    });
+});
+</script>
+{% endblock %}

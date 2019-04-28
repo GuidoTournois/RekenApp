@@ -1,0 +1,42 @@
+.btn-nps {
+    width: 250px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.dtn-table-nps {
+    overflow-y:hidden;
+    max-height:500px;
+    overflow-x:hidden;
+}
+
+body {
+    padding-top: 100px;
+}
+
+
+.my-navbar {
+
+  background-color: #2d4e9d;
+}
+
+.my-navbar a {
+  color: #FFFFFF;
+}
+
+.bg-secondary {
+    background-color: #2d4e9d !important;
+}
+
+.title-display {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+
+.tooltip-inner {
+   max-width: 500px;
+   width: 500px;
+}
