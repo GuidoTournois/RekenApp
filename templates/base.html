@@ -7,12 +7,12 @@
 <center>
 
 
-<h1>{{a}} {{c}} {{b}}</h1>
+<h1>{{a}} {{operator}} {{b}}</h1>
 
 <h2>
 <div class="btn-group" role="group" aria-label="Basic example">
 {% for item in answers %}
-  <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{{item}}</button>
+  <button id="{{item}}" type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{{item}}</button>
 {% endfor %}
 </div>
 </h2>
@@ -33,16 +33,22 @@
 
 {% block script %}
 <script>
-console.log('go')
+
 $(document).ready(function(){
 
     $(".btn").click(function(){
-        console.log("hoi")
+
+        if ( $(this).attr('id') == {{juist}} ){
+            $(this).addClass('btn-success')
+        } else {
+            $(this).addClass('btn-danger')
+        }
+
         setTimeout(
           function()
           {
                 location.reload(true);
-          }, 1000);
+          }, 2000);
 
     });
 });
